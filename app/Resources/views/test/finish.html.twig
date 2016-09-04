@@ -1,0 +1,23 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    That's it!
+{% endblock %}
+
+{% block test_subheader %}
+    The test is over
+{% endblock %}
+
+{% block test_body %}
+    <h3 class="text-center">
+        <strong>Your score</strong>: {{ app.session.get('score') }}
+    </h3>
+    <hr/>
+{% endblock %}
+
+{% block button %}
+    <a href="{{ path('homepage') }}" class="btn btn-primary text-center">
+        Back to the main page
+        <span class="glyphicon glyphicon-repeat"></span>
+    </a>
+{% endblock %}

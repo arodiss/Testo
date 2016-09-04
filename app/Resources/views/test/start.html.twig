@@ -1,0 +1,20 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    Introduction
+{% endblock %}
+
+{% block test_subheader %}
+    Please, introduce yourself to start testing.
+{% endblock %}
+
+{% block test_body %}
+    <div class="form-group row">
+        <div class="col-lg-2">
+            <label for="name">My name is...</label>
+        </div>
+        <div class="col-lg-3">
+            <input required id="name" name="introduction" class="form-control" type="text" placeholder="John Doe"/>
+        </div>
+    </div>
+{% endblock %}

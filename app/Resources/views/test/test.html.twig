@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>{% block test_header %}{% endblock %}</h1>
+        <p>{% block test_subheader %}{% endblock %}</p>
+    </div>
+    <form class="well" action="{{ path('TestNext') }}">
+        <div class="row">
+            <div class="col-lg-12">
+                {% block test_body %}{% endblock %}
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-12">
+                        {% block button %}
+                            <button class="btn btn-primary">
+                                Next
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </button>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock  %}
