@@ -1,0 +1,38 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    Patience
+{% endblock %}
+
+{% block test_subheader %}
+    Sometimes you have to tolerate really stupid things. Watch this entire video to prove you are able to.
+{% endblock %}
+
+{% block test_body %}
+    <div id="player"></div>
+    <hr/>
+    <input id="result" name="video" type="hidden" value="kandomble">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://www.youtube.com/player_api"></script>
+    <script type="text/javascript">
+        function onYouTubePlayerAPIReady() {
+            new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: 'zzJ7tCqbFno',
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === 0) {
+                $('#result').val("umbanda");
+            }
+        }
+    </script>
+{% endblock %}
