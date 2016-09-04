@@ -9,9 +9,8 @@
 {% endblock %}
 
 {% block test_body %}
-    <h3 class="text-center">
-        <strong>Your score</strong>: {{ app.session.get('score') }}
-    </h3>
+    <h3 class="text-center"><strong>Your score</strong>: {{ app.session.get('score') }} </h3>
+    <h3 class="text-center"><strong>Time spent</strong>: {{ app.session.get('time_spent') }} </h3>
     <hr/>
 {% endblock %}
 
