@@ -111,9 +111,36 @@ class TestController extends Controller
         );
 
         if (count($questionsAvailable) === 0) {
+            $this->saveResult($request);
             return self::FINISH;
         }
 
         return $questionsAvailable[array_rand($questionsAvailable)];
+    }
+
+    /** @param Request $request */
+    protected function saveResult(Request $request)
+    {
+        $result = [
+            'timestamp' => time(),
+            'name' => $request->getSession()->get(self::QUESTION_INTRO),
+            'score' => $request->getSession()->get('score'),
+            'time_spent' => $request->getSession()->get('time_spent'),
+        ];
+
+        $allResults = $this->getResults();
+        $allResults[] = $result;
+        if (count($allResults) > 10) {
+            unset($allResults[0]);
+            $allResults = array_values($allResults);
+        }
+
+        file_put_contents(__DIR__ . '/results.json', json_encode($allResults));
+    }
+
+    /** @return array */
+    protected function getResults()
+    {
+        return json_decode(file_get_contents(__DIR__ . '/results.json'));        
     }
 }

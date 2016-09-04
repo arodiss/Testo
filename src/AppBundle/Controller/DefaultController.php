@@ -12,6 +12,17 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('landing.html.twig');
+        return $this->render(
+            'landing.html.twig',
+            [
+                'results' => array_reverse($this->getResults()),
+            ]
+        );
+    }
+
+    /** @return array */
+    protected function getResults()
+    {
+        return json_decode(file_get_contents(__DIR__ . '/results.json'));
     }
 }
