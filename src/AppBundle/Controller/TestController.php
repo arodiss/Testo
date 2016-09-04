@@ -8,8 +8,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TestController extends Controller
 {
-    //todo timer
-
     const QUESTION_INTRO = 'introduction';
     const QUESTION_TEXT = 'text';
     const QUESTION_SUM = 'sum';
@@ -24,6 +22,7 @@ class TestController extends Controller
     public function startAction(Request $request)
     {
         $request->getSession()->clear();
+        $request->getSession()->set('time_start', new \DateTime());
 
         return $this->render('test/start.html.twig');
     }
@@ -106,6 +105,10 @@ class TestController extends Controller
             }            
         }
         $request->getSession()->set('score', $score);
+        $request->getSession()->set(
+            'time_spent',
+            date_diff(new \DateTime(), $request->getSession()->get('time_start'))->format('%I:%S')
+        );
 
         if (count($questionsAvailable) === 0) {
             return self::FINISH;
