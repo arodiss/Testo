@@ -1,0 +1,18 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    Summation
+{% endblock %}
+
+{% block test_subheader %}
+    Show your math skills!
+{% endblock %}
+
+{% block test_body %}
+    <input name="sum[number1]" readonly type="number" value="{{ 10+random(89) }}">
+    +
+    <input name="sum[number2]" readonly type="number" value="{{ 10+random(89) }}">
+    =
+    <input name="sum[sum]" type="number" required placeholder="Put answer here">
+    <hr/>
+{% endblock %}

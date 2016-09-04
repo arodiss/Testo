@@ -1,0 +1,45 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    Languages proficiency
+{% endblock %}
+
+{% block test_subheader %}
+    Impress us with your lingual skills
+{% endblock %}
+
+{% block test_body %}
+    <h3>What languages do you know?</h3>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="langs[PHP]"> PHP
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="langs[Python]"> Python
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="langs[.NET]"> .NET
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="langs[JS]"> JS
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="langs[VB]"> Visual Basic
+        </label>
+    </div>
+
+    <input type="hidden" name="langs[human]" value="On">
+{% endblock %}

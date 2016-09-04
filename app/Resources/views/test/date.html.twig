@@ -1,0 +1,33 @@
+{% extends 'test/test.html.twig' %}
+
+{% block test_header %}
+    Time orientation
+{% endblock %}
+
+{% block test_subheader %}
+    Time travels are going to be part of your daily job, so we value time orientation very much.
+{% endblock %}
+
+{% block test_body %}
+    <div class="radio">
+        <label>
+            <input required type="radio" name="date" value="{{ "now"|date("l") }}">
+            {{ "now"|date("l") }}
+        </label>
+        <br/>
+        <label>
+            <input required type="radio" name="date" value="{{ "+1 day"|date("l") }}">
+            {{ "+1 day"|date("l") }}
+        </label>
+        <br/>
+        <label>
+            <input required type="radio" name="date" value="{{ "+2 days"|date("l") }}">
+            {{ "+2 days"|date("l") }}
+        </label>
+        <br/>
+        <label>
+            <input required type="radio" name="date" value="{{ "-2 days"|date("l") }}">
+            {{ "-2 days"|date("l") }}
+        </label>
+    </div>
+{% endblock %}
